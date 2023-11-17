@@ -1,0 +1,62 @@
+<!-- calculate.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-green-500 text-white">
+        <nav class="container mx-auto">
+            <div class="flex items-center justify-between py-4">
+                <div class="text-2xl font-bold"><a href="#" class="text-white">Kalkulus</a></div>
+                <div class="space-x-4">
+                    <ul class="flex space-x-4">
+                        <li><a href="{{ url_for('home') }}" class="hover:text-gray-300">Home</a></li>
+                        <li class="mr-4"><a href="{{ url_for('calculate') }}" class="hover:text-gray-300">Calculate</a></li>
+                        <li><a href="{{ url_for('profile') }}" class="hover:text-gray-300">Profile</a></li>
+                        <li><a href="{{ url_for('materi') }}" class="hover:text-gray-300 text-white">Materi</a></li>
+                    </ul>                    
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mx-auto mt-8">
+        <div class="max-w-md mx-auto bg-white p-8 border rounded-md shadow-md">
+            <h2 class="text-2xl font-bold mb-4">Hitung Fungsi</h2>
+            <form action="{{ url_for('hitung') }}" method="post">
+                <div class="mb-4">
+                    <label for="inputFunction" class="block text-gray-700 text-sm font-bold mb-2">Masukkan Fungsi:</label>
+                    <input type="text" id="inputFunction" name="inputFunction" class="w-full border rounded-md p-2" placeholder="Contoh: 4x^2+5x+2">
+                </div>
+                <div class="mb-4">
+                    <label for="functionType" class="block text-gray-700 text-sm font-bold mb-2">Pilih Jenis Fungsi:</label>
+                    <select id="functionType" name="functionType" class="w-full border rounded-md p-2">
+                        <option value="aljabar">Turunan Fungsi Aljabar</option>
+                        <option value="logaritma">Turunan Fungsi Logaritma</option>
+                        <option value="eksponen">Turunan Fungsi Eksponen</option>
+                    </select>
+                </div>
+                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 block w-full">Hitung</button>
+            </form>
+
+            <!-- Box Hasil -->
+            <div class="mt-8">
+                <h3 class="text-xl font-bold mb-2">Hasil Perhitungan:</h3>
+                <div id="result" class="bg-gray-100 p-4 rounded-md">
+                    <!-- Tempat hasil perhitungan ditampilkan -->
+                    {{ result }}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

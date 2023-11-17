@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-green-500 text-white">
+        <nav class="container mx-auto">
+            <div class="flex items-center justify-between py-4">
+                <div class="text-2xl font-bold"><a href="#" class="text-white">Kalkulus</a></div>
+                <div class="space-x-4">
+                    <ul class="flex space-x-4">
+                        <li><a href="{{ url_for('home') }}" class="hover:text-gray-300">Home</a></li>
+                        <li class="mr-4"><a href="{{ url_for('calculate') }}" class="hover:text-gray-300">Calculate</a></li>
+                        <li><a href="{{ url_for('profile') }}" class="hover:text-gray-300">Profile</a></li>
+                        <li><a href="{{ url_for('materi') }}" class="hover:text-gray-300 text-white">Materi</a></li>
+                    </ul>                    
+                </div>
+            </div>
+        </nav>
+    </header>
+</body>
+</html>
